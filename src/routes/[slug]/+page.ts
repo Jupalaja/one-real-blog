@@ -1,4 +1,4 @@
-import type { Post } from '$lib/types.js'
+import type { Post } from '$lib/types'
 import { error } from '@sveltejs/kit'
 
 export async function load({ params }) {
@@ -10,6 +10,6 @@ export async function load({ params }) {
 			meta: post.metadata as Omit<Post, 'slug'>
 		}
 	} catch (e) {
-		throw error(404, `Post ${params.slug} not found`)
+		throw error(404, `Post "${params.slug}" not found`)
 	}
 }
